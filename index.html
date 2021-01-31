@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>AR-3D V1.0.0</title>
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
+	
+	<link rel="preconnect" href="https://fonts.gstatic.com"/>
+	<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
+
+	<link rel="stylesheet" href="./main.css">
+
+	<script src="./src/threex.domevents.js"></script>
+	<script src="./src/threex.keyboardstate.js"></script>
+	
+	<script src="./src/jquery.min.js"></script>
+	<script src="./build/three.js"></script>
+
+	<script src="./src/artoolkit.min.js"></script>
+	<script src="./src/artoolkit.api.js"></script>
+	
+	<script src="./src/threex-artoolkitsource.js"></script>
+	<script src="./src/threex-artoolkitcontext.js"></script>
+	<script src="./src/threex-arbasecontrols.js"></script>
+	<script src="./src/threex-armarkercontrols.js"></script>
+	
+  	<script src="./examples/js/controls/OrbitControls.js"></script>
+  	<script src="./examples/js/controls/DragControls.js"></script>
+	<script src="./examples/js/loaders/OBJLoader.js"></script>
+    
+  </head>
+  
+  <body>
+
+<div id="ui">
+
+<div id="frame">	
+	<span class="title1">Visualisation 1.0</span>
+	</div>
+		<div class="panel">
+				<div id="lateral"></div>
+				<div id="lateral2"></div>
+
+				<div id="menus">
+
+				<button class="button button1">&nbsp;&nbsp;&nbsp;Paramètres
+				<div id="icon"><img src="./assets/ui/button.png"></div>
+				</button>
+
+				<div id="menu">
+					<button class="button button3" onclick="murs_active();">Murs /On</button>
+					<button class="button button4" onclick="murs_inactive();">Murs /Off</button>
+					<button class="button button5" onclick="liteaux_active();">Liteaux /On</button>
+					<button class="button button6" onclick="liteaux_inactive();">Liteaux /Off</button>
+					<button class="button button7" onclick="tuiles_active();">Tuiles /On</button>
+					<button class="button button11" onclick="tuiles_inactive();">Tuiles /Off</button>
+					<button class="button button12" onclick="isolation_active();">Isolation /On</button>
+					<button class="button button13" onclick="isolation_inactive();">Isolation /Off</button>
+					<button class="button button14" onclick="ouvertures_active();">Ouvertures /On</button>
+					<button class="button button15" onclick="ouvertures_inactive();">Ouvertures /Off</button>
+					<button class="button button16" onclick="accessoires_active();">Accessoires /On</button>
+					<button class="button button17" onclick="accessoires_inactive();">Accessoires /Off</button>
+					<button class="button button24" onclick="lucarnes_active();">Lucarnes /On</button>
+					<button class="button button25" onclick="lucarnes_inactive();">Lucarnes /Off</button>
+
+					<span class="item13">
+						<button class="button button18" onclick="raval_1();">-</button>
+						<button class="button button19" onclick="raval_2();">-</button>
+						<button class="button button20" onclick="raval_3();">-</button>
+					</span>
+
+					<span class="item14">
+						<button class="button button21" onclick="teinte_1();">-</button>
+						<button class="button button22" onclick="teinte_2();">-</button>
+						<button class="button button23" onclick="teinte_3();">-</button>
+					</span>
+
+					<button class="button button26" onclick="animate2();">Visite</button>
+
+					<span class="item18">
+						<button class="button button27" onclick="cam1();"><div id="icon6"><img src="./assets/ui/sunny.png"></div></button>
+						<button class="button button28" onclick="cam2();"><div id="icon7"><img src="./assets/ui/rainny.png"></div></button>
+					</span>
+				</div>
+			
+					<span class="item1">
+								<button class="button button2" onclick="reset();">
+								<div id="icon2"><img src="./assets/ui/axis.png"></div></button>
+								
+								<button class="button button8" onclick="pause();">
+								<div id="icon3"><img src="./assets/ui/pause.png"></div></button>
+								
+								<button class="button button9" onclick="playback();">
+								<div id="icon4"><img src="./assets/ui/play.png"></div></button>
+								
+								<button class="button button10" onclick="rewind();">
+								<div id="icon5"><img src="./assets/ui/rewind.png"></div></button>
+					</span>
+						<div class="button button29"></div>
+				</div></div>
+								<section id="loading-screen">
+									<div class="loading-page">
+										<div id="loading-glass"></div>
+										<div class="counter">
+										  <h1>0%</h1>
+										  <hr/>
+										</div></div></section>
+
+<script>
+    $(function(){
+$( window ).on( "load", function() {
+$(".panel").toggleClass('panel_open') ;
+$(".panel_close").on('transitionend webkitTransitionEnd oTransitionEnd', function () {
+ $(".panel_open").toggleClass('panel_close') ; 
+$(".panel_close").removeClass("panel_open") ;
+});
+    });
+});
+
+	$(function(){
+    $('.panel').on('click', function(){
+    $(this).toggleClass('panel_close') ;
+    });
+});
+
+$(function(){
+    $('#menus, .item1').on('click', function(){
+		return false;
+    });
+});
+</script>
+<script src="./fonctions.js" defer></script>
+<script src="./cube.js" defer></script>
+
+  </body>
+  </html
